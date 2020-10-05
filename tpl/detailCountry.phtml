@@ -1,0 +1,27 @@
+<p>
+    <?php echo $result['countrycode'] ?>
+    <?php echo $result['language'] ?>
+    <?php echo $result['isofficial'] ?>
+    <?php echo  $result['percentage'] ?>
+
+
+</p>
+
+<form method="post" action="./updateDetail.php?code=<?php echo $result['countrycode'] ?>&language=<?php echo $result['language'] ?>">
+    <label for="countrycode"> code pays</label>
+    <select name="countrycode" id="countrycode">
+
+        <?php foreach ($result2 as $code) { ?>
+
+            <option><?php echo $code['code'] ?></option>
+
+        <?php } ?>
+    </select>
+    <label for="language"> Langage</label>
+    <input type="text" name="language" id="language">
+    <label for="isoffcial"> Est officiel</label>
+    <input type="checkbox" name="isofficial" id="isofficial">
+    <label for="percentage"> pourcentage</label>
+    <input type="number" name="percentage" id="percentage">
+    <input type="submit" value="modifier">
+</form>
